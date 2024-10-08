@@ -1,0 +1,17 @@
+[build-system]
+requires = [
+    "setuptools",
+	"setuptools-scm"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdftool"
+version = "0.1"
+description = "Экспорт pdf в растр"
+dependencies = [
+	"pymupdf"
+]
+
+[project.scripts]
+pdftool = "pdftool:main"
