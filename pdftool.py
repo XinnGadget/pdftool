@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Экспорт pdf в растр"""
 
+import os
 import sys
 import pymupdf
 
@@ -112,7 +113,7 @@ def main():
             for size in export_sizes:
                 if is_equal_size((width, height), size):
                     img = page.get_pixmap(dpi=EXPORT_DPI)
-                    filename = f'{width}x{height}_{pdf_file.removesuffix('.pdf')}_{num:02}'
+                    filename = f'{width}x{height}_{os.path.basename(pdf_file).removesuffix('.pdf')}_{num:02}'
                     print(f'Сохраняю {filename}.png')
                     img.save(f'{filename}.png')
 
