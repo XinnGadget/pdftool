@@ -9,7 +9,7 @@ EXPORT_DPI = 250
 
 PRINTER_SIZES = (29.7, 42)
 
-__version__ = "0.1"
+__version__ = "0.2"
 
 
 def pt2cm(pt: float) -> float:
@@ -67,6 +67,14 @@ def filter2printer(sizes: list) -> list:
     return ret
 
 
+def filter2plotter(sizes: list) -> list:
+    ret = []
+    for size in sizes:
+        if (size[0] > PRINTER_SIZES[0]) or (size[1] > PRINTER_SIZES[1]):
+            ret.append(size)
+    return ret
+
+
 def choose_to_export(unique_sizes) -> list:
     for num, size in enumerate(unique_sizes, start=1):
         print(f'{num}) {size[0]}x{size[1]}')
@@ -84,7 +92,7 @@ def choose_to_export(unique_sizes) -> list:
     elif choice.lower() == 'p':
         return filter2printer(unique_sizes)
     elif choice.lower() == 'l':
-        #TODO: фильтрация для печать на плоттере
+        return filter2plotter(unique_sizes)
         pass
     elif choice.lower() == 'q':
         sys.exit(0)
