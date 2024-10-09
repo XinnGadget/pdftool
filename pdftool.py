@@ -8,6 +8,8 @@ EXPORT_DPI = 250
 
 PRINTER_SIZES = (29.7, 42)
 
+__version__ = "0.1"
+
 
 def pt2cm(pt: float) -> float:
     return round(pt*(2.54/72), 2)

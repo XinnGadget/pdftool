@@ -7,7 +7,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pdftool"
-version = "0.1"
+dynamic = ["version"]
 description = "Экспорт pdf в растр"
 dependencies = [
 	"pymupdf"
@@ -15,3 +15,6 @@ dependencies = [
 
 [project.scripts]
 pdftool = "pdftool:main"
+
+[tool.setuptools.dynamic]
+version = {attr = "pdftool.__version__"}
